@@ -7,7 +7,7 @@ var mkdirp = require('mkdirp');
 function copy(from, to, callback) {
   var write = fs.createWriteStream(to);
   var read = fs.createReadStream(from);
-  write.on('done', callback);
+  write.on('close', callback);
   write.on('error', callback);
   read.on('error', callback);
   read.pipe(write);
@@ -38,6 +38,7 @@ Bundler.prototype.build = function(input, dest, callback) {
   var self = this;
   var dir = path.dirname(dest);
   mkdirp(dir, function(){
+    var inputDir = path.dirname(input);
     fs.readFile(input, function(err, buffer) {
       var str = buffer.toString();
       var batch = new Batch();
@@ -48,7 +49,8 @@ Bundler.prototype.build = function(input, dest, callback) {
         var filename = path.basename(url);
         var name = crypto.createHash('md5').update(url).digest("hex") + path.extname(filename);
         batch.push(function(done){
-          copy(url, path.join(dir, name), done);
+          var image = path.join(inputDir, url);
+          copy(image, path.join(dir, name), done);
         });
         return 'url(' + name + ')';
       });

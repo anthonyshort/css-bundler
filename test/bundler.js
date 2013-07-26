@@ -19,11 +19,11 @@ describe('CSS Bundler', function(){
 
   it('should copy over the images', function(done){
     bundle.build('./test/fixtures/input.css', './test/fixtures/build/build.css', function(err, css){
-      var exists;
-      exists = fs.existsSync('./test/fixtures/build/6edf7858c7afecac61ee6bf5df17f196.png');
-      assert(exists);
-      exists = fs.existsSync('./test/fixtures/build/d2b5ca33bd970f64a6301fa75ae2eb22.png');
-      assert(exists);
+      var file;
+      file = fs.statSync('./test/fixtures/build/6edf7858c7afecac61ee6bf5df17f196.png');
+      assert.notEqual(file.size, 0);
+      file = fs.statSync('./test/fixtures/build/d2b5ca33bd970f64a6301fa75ae2eb22.png');
+      assert.notEqual(file.size, 0);
       done();
     });
   });
