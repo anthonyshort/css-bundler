@@ -5,3 +5,27 @@
 .bar {
   background: url('nested/tick.png');
 }
+
+.baz {
+  background: url('http://placecage.com/400/400');
+}
+
+.rab {
+  background: url('data:image/gif;base64,R0lGODlh');
+}
+
+.foo {
+  background: url("image.png");
+}
+
+.bar {
+  background: url("nested/tick.png");
+}
+
+.baz {
+  background: url("http://placecage.com/400/400");
+}
+
+.rab {
+  background: url("data:image/gif;base64,R0lGODlh");
+}
