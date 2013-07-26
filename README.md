@@ -11,30 +11,7 @@ have to worry about file paths.
 
     css-bundler {input} {output}
 
-## Grunt
-
-Load the tasks
-
-    grunt.loadNpmTasks('css-bundler')
-
-Set the config for the task (as a multi-task)
-
-    cssbundle: {
-      all: {
-        files: {
-          src: ['path/to/file.css'],
-          dest: '/build'
-        }
-      }
-    }
-
-Or simplify it using the standard Grunt file API
-
-    cssbundle: {
-      all: ['path/to/file.css']
-    }
-
-## Programmatically
+## Usage
 
     var Bundler = require('css-bundler');
     var bundle = new Bundler();
