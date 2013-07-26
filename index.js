@@ -4,10 +4,14 @@ var path = require('path');
 var Batch = require('batch');
 var mkdirp = require('mkdirp');
 var utils = require('./lib/utils');
+var Emitter = require('events').EventEmitter;
+var inherit = require('util').inherits;
 
 function Bundler(options) {
   this.options = options;
 }
+
+inherit(Bundler, Emitter);
 
 Bundler.prototype.use = function(fn) {
   fn(this);
@@ -28,8 +32,8 @@ Bundler.prototype.build = function(input, dest, callback) {
         var filename = path.basename(url);
         var name = crypto.createHash('md5').update(url).digest("hex") + path.extname(filename);
         batch.push(function(done){
-          var image = path.join(inputDir, url);
-          utils.copy(image, path.join(dir, name), done);
+          var asset = path.join(inputDir, url);
+          utils.copy(asset, path.join(dir, name), done);
         });
         return 'url("' + name + '")';
       });

@@ -28,4 +28,15 @@ describe('CSS Bundler', function(){
     });
   });
 
+  it.skip('should emit an event for each asset', function(done){
+    var count = 0;
+    bundle.on('asset', function(){
+      count++;
+    });
+    bundle.build('./test/fixtures/input.css', './test/fixtures/build/build.css', function(){
+      assert.equal(count, 2);
+      done();
+    });
+  });
+
 });
