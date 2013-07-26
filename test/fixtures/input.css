@@ -1,0 +1,7 @@
+.foo {
+  background: url('image.png');
+}
+
+.bar {
+  background: url('nested/tick.png');
+}

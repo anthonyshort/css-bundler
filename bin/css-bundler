@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+var Bundle = require('../');
+var args = process.argv.slice(2);
+
+var bundle = new Bundle();
+
+bundle.build(args[0], args[1], function(err){
+  if(err) {
+    console.log(err);
+    return program.exit(1);
+  }
+  program.exit();
+})

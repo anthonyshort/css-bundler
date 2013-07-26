@@ -1,0 +1,31 @@
+{
+  "name": "css-bundler",
+  "version": "0.1.0",
+  "description": "Bundle CSS and assets into a single folder for distributing",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "commander": "1.0.5",
+    "mkdirp": "0.3.4",
+    "batch": "*"
+  },
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/anthonyshort/css-bundler"
+  },
+  "keywords": [
+    "css",
+    "package",
+    "cli",
+    "bundle"
+  ],
+  "bin": {
+    "css-bundler": "bin/css-bundler"
+  },
+  "author": "Anthony Short"
+}
