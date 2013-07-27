@@ -1,6 +1,6 @@
 {
   "name": "css-bundler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Bundle CSS and assets into a single folder for distributing",
   "main": "index.js",
   "directories": {
