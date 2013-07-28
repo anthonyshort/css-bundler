@@ -1,5 +1,6 @@
 var fs = require('fs');
 var Batch = require('batch');
+var Bundle = require('../');
 
 module.exports = function(grunt) {
   grunt.registerMultiTask('cssbundler', function(){
