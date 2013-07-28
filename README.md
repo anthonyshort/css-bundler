@@ -1,15 +1,13 @@
 # css-bundler
 
 Bundle a CSS file and all of its assets into a single directory. This means you don't
-have to worry about file paths. If you separate you CSS into components, you might 
-run into this problem. You don't want to have to worry about dozens of component 
+have to worry about file paths. If you separate you CSS into components, you might
+run into this problem. You don't want to have to worry about dozens of component
 folders and paths.
 
-## Installation
+### Install
 
     npm install -g css-bundler
-
-## Usage
 
 ### Command Line
 
