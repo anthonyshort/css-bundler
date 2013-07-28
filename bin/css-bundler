@@ -1,9 +1,15 @@
 #!/usr/bin/env node
 
+var program = require('commander');
 var Bundle = require('../');
 var args = process.argv.slice(2);
 
-var bundle = new Bundle();
+program.option('-p, --prefix <name>', 'Prefix for all urls');
+program.parse(process.argv);
+
+var bundle = new Bundle({
+  prefix: program.prefix
+});
 
 bundle.build(args[0], args[1], function(err){
   if(err) {

@@ -19,6 +19,7 @@ Bundler.prototype.use = function(fn) {
 
 Bundler.prototype.build = function(input, dest, callback) {
   var self = this;
+  var options = this.options;
   var dir = path.dirname(dest);
   mkdirp(dir, function(){
     var inputDir = path.dirname(input);
@@ -35,7 +36,7 @@ Bundler.prototype.build = function(input, dest, callback) {
           var asset = path.join(inputDir, url);
           utils.copy(asset, path.join(dir, name), done);
         });
-        return 'url("' + name + '")';
+        return 'url("' + (options.prefix || '') + name + '")';
       });
 
       batch.push(function(done){
